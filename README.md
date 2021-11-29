@@ -42,3 +42,5 @@ mvn clean package
 ```shell
 java -jar ./target/producer-consumer-pattern-challenge-jar-with-dependencies.jar
 ```
+
+If you want to disable log messages, set logger level to `"info` in `logback.xml`.
