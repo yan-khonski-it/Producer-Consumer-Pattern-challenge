@@ -1,14 +1,14 @@
-package com.truu.interviews.fullstack.producerconsumer;
+package com.truu.interviews.fullstack.producerconsumer.app;
 
-import java.util.Queue;
+import com.truu.interviews.fullstack.producerconsumer.iml.SharedQueue;
+import com.truu.interviews.fullstack.producerconsumer.iml.SynchronizedQueue;
 
 public class ProducerConsumerTemplate {
 
   private static final int MAX_SIZE = 5;
 
   public static void main(String[] args) {
-    // TODO
-    Queue<Integer> queue = null;
+    SharedQueue queue = new SynchronizedQueue(MAX_SIZE);
 
     Thread prodThread = new Thread(new Producer(queue));
     prodThread.start();
@@ -17,28 +17,36 @@ public class ProducerConsumerTemplate {
   }
 
   public static class Producer implements Runnable {
-    private final Queue<Integer> queue;
 
-    public Producer(Queue<Integer> queue) {
+    private final SharedQueue queue;
+
+    public Producer(SharedQueue queue) {
       this.queue = queue;
     }
 
     @Override
     public void run() {
       // TODO
+      for (int i = 0; i < 10; i++) {
+        queue.add(i);
+      }
     }
   }
 
   public static class Consumer implements Runnable {
-    private final Queue<Integer> queue;
 
-    public Consumer(Queue<Integer> queue) {
+    private final SharedQueue queue;
+
+    public Consumer(SharedQueue queue) {
       this.queue = queue;
     }
 
     @Override
     public void run() {
       // TODO
+      for (int i = 0; i < 10; i++) {
+        queue.remove();
+      }
     }
   }
 

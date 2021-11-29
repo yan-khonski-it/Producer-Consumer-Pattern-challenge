@@ -15,3 +15,30 @@ producer/consumer pattern with the following behaviors and characteristics:
 ## Question 1B: (More) Modern Producer Consumer Pattern
 
 - Implement a solution to Question 1A again. You are permitted to use `java.util.concurrent`.
+
+## Prerequisites:
+
+- JDK 11
+- maven 3
+
+## Code style
+
+I used google code style format - `intellij-java-google-style.xml`. Settings -> Code style -> Scheme
+-> Import scheme.
+
+https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
+
+## How to run
+
+1) You need java 11. You need maven 3
+2) Build with maven
+
+```shell
+mvn clean package
+```
+
+3) Run the app in the console
+
+```shell
+java -jar ./target/producer-consumer-pattern-challenge-jar-with-dependencies.jar
+```
